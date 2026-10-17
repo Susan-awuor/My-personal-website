@@ -1,0 +1,347 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: dark;
+    --page: #151416;
+    --panel: #211f20;
+    --panel-raised: #292526;
+    --ink: #f6f1ed;
+    --muted: #bcb2ad;
+    --border: rgba(246, 241, 237, 0.14);
+    --accent: #f2b29e;
+    --accent-ink: #261711;
+    --mint: #9ad5c3;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--page);
+    background-image: linear-gradient(rgba(246, 241, 237, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(246, 241, 237, 0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.55;
+}
+
+.page-shell {
+    width: min(1060px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 34px 0 24px;
+}
+
+.page-header {
+    max-width: 680px;
+    margin-bottom: 32px;
+}
+
+.back-link,
+.tool-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back-link svg,
+.tool-link svg,
+.primary-button svg,
+.secondary-button svg {
+    width: 17px;
+    height: 17px;
+}
+
+.back-link:hover,
+.tool-link:hover {
+    color: #ffe1d5;
+}
+
+.back-link:focus-visible,
+.tool-link:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--mint);
+    outline-offset: 3px;
+}
+
+.eyebrow {
+    margin: 24px 0 8px;
+    color: var(--mint);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.page-header h1,
+.panel-heading h2 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 500;
+}
+
+.page-header h1 {
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+.intro-copy {
+    max-width: 560px;
+    margin: 12px 0 0;
+    color: var(--muted);
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+    gap: 18px;
+}
+
+.workspace-panel {
+    min-width: 0;
+    padding: 26px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.workspace-panel[hidden] {
+    display: none;
+}
+
+.panel-heading {
+    margin-bottom: 24px;
+}
+
+.panel-heading .eyebrow {
+    margin: 0 0 8px;
+}
+
+.panel-heading h2 {
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+#studyForm {
+    display: grid;
+    gap: 10px;
+}
+
+#studyForm label:not(.check-row),
+.sr-only {
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#studyForm input[type="text"],
+#studyForm select,
+#studyForm textarea,
+.prompt-output {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    border: 1px solid rgba(246, 241, 237, 0.18);
+    border-radius: 5px;
+    background: var(--panel-raised);
+    color: var(--ink);
+    font: inherit;
+}
+
+#studyForm input::placeholder,
+#studyForm textarea::placeholder {
+    color: #9d918c;
+}
+
+#studyForm textarea,
+.prompt-output {
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 5px 0;
+}
+
+.form-row > div {
+    display: grid;
+    gap: 8px;
+}
+
+.check-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 10px;
+    color: var(--muted);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.check-row input {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    accent-color: var(--accent);
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 11px 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: var(--accent);
+    color: var(--accent-ink);
+}
+
+.primary-button:hover {
+    background: #ffd3c2;
+}
+
+.secondary-button {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--ink);
+}
+
+.secondary-button:hover {
+    background: rgba(246, 241, 237, 0.08);
+}
+
+.result-panel {
+    background: #1b1a1b;
+}
+
+.result-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.ready-mark {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(154, 213, 195, 0.13);
+    color: var(--mint);
+}
+
+.ready-mark svg {
+    width: 18px;
+    height: 18px;
+}
+
+.prompt-output {
+    min-height: 310px;
+    color: #e7ded9;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.tool-link {
+    min-height: 42px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+.copy-status {
+    min-height: 20px;
+    margin: 12px 0 0;
+    color: var(--mint);
+    font-size: 13px;
+}
+
+.privacy-note {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+@media (max-width: 760px) {
+    .workspace {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .page-shell {
+        width: min(100% - 28px, 520px);
+        padding-top: 22px;
+    }
+
+    .page-header h1 {
+        font-size: 35px;
+    }
+
+    .workspace-panel {
+        padding: 19px;
+    }
+
+    .form-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .page-footer {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

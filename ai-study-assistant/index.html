@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Build a thoughtful AI study prompt for a topic, learning level, and study session.">
+    <meta name="theme-color" content="#151416">
+    <title>AI Study Prompt Studio | Susan Awuor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="page-header">
+            <a class="back-link" href="../index.html#projects">
+                <i data-lucide="arrow-left" aria-hidden="true"></i>
+                <span>Portfolio</span>
+            </a>
+            <p class="eyebrow">AI TOOLKIT</p>
+            <h1>AI prompt studio</h1>
+            <p class="intro-copy">Build prompts for learning, coding, writing, research, ideas, and image creation.</p>
+        </header>
+
+        <main class="workspace">
+            <section class="workspace-panel builder-panel" aria-labelledby="builderTitle">
+                <div class="panel-heading">
+                    <p class="eyebrow">01 / SESSION</p>
+                    <h2 id="builderTitle">Set your direction</h2>
+                </div>
+
+                <form id="studyForm">
+                    <label for="mode">AI task type</label>
+                    <select id="mode" name="mode">
+                        <option value="tutor">Study tutor</option>
+                        <option value="coding">Coding mentor</option>
+                        <option value="writing">Writing coach</option>
+                        <option value="research">Research guide</option>
+                        <option value="quiz">Quiz maker</option>
+                        <option value="brainstorm">Brainstorm partner</option>
+                        <option value="language">Language practice</option>
+                        <option value="image">Image prompt creator</option>
+                    </select>
+
+                    <label for="topic">Topic or task</label>
+                    <input id="topic" name="topic" type="text" maxlength="120" placeholder="For example, CSS grid or a science topic" required>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="level">Your current level</label>
+                            <select id="level" name="level">
+                                <option value="beginner">New to this</option>
+                                <option value="developing">I know the basics</option>
+                                <option value="confident">Ready for a challenge</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="duration">Time budget</label>
+                            <select id="duration" name="duration">
+                                <option value="15">15 minutes</option>
+                                <option value="25" selected>25 minutes</option>
+                                <option value="45">45 minutes</option>
+                                <option value="60">60 minutes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label for="goal">Desired result</label>
+                    <textarea id="goal" name="goal" rows="3" maxlength="240" placeholder="For example, explain a concept or build a responsive layout"></textarea>
+
+                    <label class="check-row" for="includeQuiz">
+                        <input id="includeQuiz" name="includeQuiz" type="checkbox" checked>
+                        <span>Include a quick check where it fits</span>
+                    </label>
+
+                    <button class="primary-button" type="submit">
+                        <i data-lucide="sparkles" aria-hidden="true"></i>
+                        <span>Build my study prompt</span>
+                    </button>
+                </form>
+            </section>
+
+            <section id="resultPanel" class="workspace-panel result-panel" aria-labelledby="resultTitle" hidden>
+                <div class="panel-heading result-heading">
+                    <div>
+                        <p class="eyebrow">02 / YOUR PROMPT</p>
+                        <h2 id="resultTitle">Prompt ready</h2>
+                    </div>
+                    <span class="ready-mark" aria-label="Prompt ready">
+                        <i data-lucide="check" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <label class="sr-only" for="generatedPrompt">Generated study prompt</label>
+                <textarea id="generatedPrompt" class="prompt-output" rows="16" readonly></textarea>
+
+                <div class="result-actions">
+                    <button id="copyPrompt" class="secondary-button" type="button">
+                        <i data-lucide="copy" aria-hidden="true"></i>
+                        <span>Copy prompt</span>
+                    </button>
+                    <a class="tool-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">
+                        <span>ChatGPT</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                    <a class="tool-link" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">
+                        <span>Gemini</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                    <a class="tool-link" href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">
+                        <span>Perplexity</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                    <a class="tool-link" href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">
+                        <span>Copilot</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                    <a class="tool-link" href="https://firefly.adobe.com/" target="_blank" rel="noopener noreferrer">
+                        <span>Firefly</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                    <a class="tool-link" href="https://www.deepl.com/write" target="_blank" rel="noopener noreferrer">
+                        <span>DeepL Write</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <p id="copyStatus" class="copy-status" role="status" aria-live="polite"></p>
+                <p class="privacy-note">Your study details stay in this browser. The prompt is sent only when you choose an AI service.</p>
+            </section>
+        </main>
+
+        <footer class="page-footer">
+            <span>HTML / CSS / JavaScript</span>
+            <span>AI-assisted learning, with you in control</span>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
